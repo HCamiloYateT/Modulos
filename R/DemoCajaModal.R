@@ -602,7 +602,7 @@ CajaModal("kpi_12",
     header  = bs4Dash::bs4DashNavbar(title = "Demo — CajaModal", skin = "dark"),
     sidebar = bs4Dash::bs4DashSidebar(disable = TRUE),
     body = bs4Dash::bs4DashBody(
-
+      includeCSS("https://raw.githubusercontent.com/HCamiloYateT/Compartido/refs/heads/main/Styles/style.css"),
       # Fila 1: numericos y semaforos
       bs4Dash::bs4Card(
         title       = "Fila 1 — Numericos y semaforos",
