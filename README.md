@@ -40,6 +40,7 @@ devtools::install_github("HCamiloYateT/racafeModulos")
 | Función | Descripción |
 |---------|-------------|
 | `DemoCajaModal()` | App de demostración con 12 variantes de uso. |
+| `DemoTablaReactable()` | App de demostración autocontenida del módulo `TablaReactable`. |
 
 ## CajaModal
 
@@ -84,6 +85,20 @@ CajaModal(
 | `tamano_modal` | string | `"s"` / `"m"` / `"l"` / `"xl"` |
 | `footer` | reactive / string / NULL | Texto debajo de la caja |
 | `footer_class` | string | Clase CSS del párrafo footer |
+
+
+### Demo avanzada de TablaReactable
+
+`DemoTablaReactable()` agrega una demo integral del módulo `TablaReactable` para validar
+modos de selección (`fila`, `celda`, `columna`, `ninguno`), modales integrados,
+`col_specs`, restricciones por columnas/filas y composición con módulos externos.
+
+```r
+library(racafeModulos)
+
+# Lanza una app bs4Dash con todos los escenarios de integración
+DemoTablaReactable()
+```
 
 ## Imports y Suggests
 

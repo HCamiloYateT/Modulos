@@ -3,6 +3,7 @@
 export(CajaModal)
 export(CajaModalUI)
 export(DemoCajaModal)
+export(DemoTablaReactable)
 export(html_valor)
 export(html_texto)
 export(TablaReactable)
