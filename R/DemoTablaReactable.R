@@ -1,31 +1,3 @@
-#' Demo autocontenida del modulo TablaReactable
-#'
-#' Lanza una aplicacion Shiny con bs4Dash que cubre todas las variaciones
-#' del modulo: modos fila/celda/columna/ninguno, modal integrado (fila y celda),
-#' showcase de `col_specs` con formatos racafe, modulos externos reactivos,
-#' filas bloqueadas en JS, panel inline en el padre, restriccion de columnas
-#' activas y restriccion de filas por predicado R.
-#'
-#' @details
-#' Todos los datasets, helpers, modulos auxiliares, UI y server estan
-#' encapsulados en el cuerpo de la funcion. Los modulos auxiliares
-#' (`DetalleAsesor`, `ResumenSegmento`, `DetalleClienteModal`, `DetalleLeadModal`)
-#' son versiones minimas orientadas a mostrar el patron de integracion,
-#' no analisis de datos completos.
-#'
-#' @param ... Parametros reservados para extensiones futuras.
-#'
-#' @return Objeto `shiny.appobj` listo para ejecutar.
-#' @references
-#' * Shiny: <https://shiny.posit.co/>
-#' * reactable: <https://glin.github.io/reactable/>
-#' * bs4Dash: <https://rinterface.github.io/bs4Dash/>
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#'   DemoTablaReactable()
-#' }
 DemoTablaReactable <- function(...) {
 
   # DATOS ----
@@ -617,8 +589,8 @@ DemoTablaReactable <- function(...) {
           .kpi_mini("Asesor",    as.character(f$asesor[[1]])),
           .kpi_mini("Estado",    as.character(f$estado_lead[[1]]), "#2C7BB6"),
           .kpi_mini("Sacos Op.", format(as.integer(f$sacos_op[[1]]), big.mark = ",")),
-          .kpi_mini("Margen Op.",paste0("$", format(round(as.numeric(f$margen_op[[1]])),
-                                                   big.mark = ",")), "#1E8449")
+          .kpi_mini("Margen Op.", paste0("$", format(round(as.numeric(f$margen_op[[1]])),
+                                                    big.mark = ",")), "#1E8449")
         )
         cuerpo <- if (sel$col == "Editar") {
           shiny::tagList(
@@ -670,23 +642,23 @@ DemoTablaReactable <- function(...) {
           shiny::tags$span(" Demo",          style = "font-weight:300; color:#aaa;")),
         color = "white")),
     sidebar = bs4Dash::bs4DashSidebar(bs4Dash::bs4SidebarMenu(
-      bs4Dash::bs4SidebarMenuSubItem("Base",              "tab_grupo_base",    icon = shiny::icon("table")),
-      bs4Dash::bs4SidebarMenuItem("Modo Fila",            "tab_fila",          icon = shiny::icon("table")),
-      bs4Dash::bs4SidebarMenuItem("Modo Celda",           "tab_celda",         icon = shiny::icon("th")),
-      bs4Dash::bs4SidebarMenuItem("Modo Columna",         "tab_columna",       icon = shiny::icon("columns")),
-      bs4Dash::bs4SidebarMenuItem("Solo lectura",         "tab_ninguno",       icon = shiny::icon("book")),
-      bs4Dash::bs4SidebarMenuSubItem("Avanzado",          "tab_grupo_avanzado",icon = shiny::icon("magic")),
-      bs4Dash::bs4SidebarMenuItem("Modal — Fila",    "tab_modal_fila",    icon = shiny::icon("window-restore")),
-      bs4Dash::bs4SidebarMenuItem("Modal — Celda",   "tab_modal_celda",   icon = shiny::icon("hand-pointer")),
-      bs4Dash::bs4SidebarMenuItem("Showcase col_specs",   "tab_col_specs",     icon = shiny::icon("sliders")),
-      bs4Dash::bs4SidebarMenuSubItem("Modulos Externos",  "tab_grupo_ext",     icon = shiny::icon("puzzle-piece")),
-      bs4Dash::bs4SidebarMenuItem("Asesor + Grafico",     "tab_ext_asesor",    icon = shiny::icon("user-tie")),
-      bs4Dash::bs4SidebarMenuItem("Segmento + Dona",      "tab_ext_segmento",  icon = shiny::icon("layer-group")),
-      bs4Dash::bs4SidebarMenuSubItem("Restricciones",     "tab_grupo_panel",   icon = shiny::icon("sliders")),
-      bs4Dash::bs4SidebarMenuItem("Filas Bloqueadas",     "tab_panel_inline",  icon = shiny::icon("ban")),
-      bs4Dash::bs4SidebarMenuItem("Panel en Padre",       "tab_panel_externo", icon = shiny::icon("columns")),
-      bs4Dash::bs4SidebarMenuItem("Restriccion Cols",     "tab_rest_cols",     icon = shiny::icon("filter")),
-      bs4Dash::bs4SidebarMenuItem("Restriccion Filas",    "tab_rest_filas",    icon = shiny::icon("ban"))
+      bs4Dash::bs4SidebarMenuSubItem("Base",            tabName = "tab_grupo_base", icon = shiny::icon("table")),
+      bs4Dash::bs4SidebarMenuItem("Modo Fila",          tabName = "tab_fila",       icon = shiny::icon("table")),
+      bs4Dash::bs4SidebarMenuItem("Modo Celda",         tabName = "tab_celda",      icon = shiny::icon("th")),
+      bs4Dash::bs4SidebarMenuItem("Modo Columna",       tabName = "tab_columna",    icon = shiny::icon("columns")),
+      bs4Dash::bs4SidebarMenuItem("Solo lectura",       tabName = "tab_ninguno",    icon = shiny::icon("book")),
+      bs4Dash::bs4SidebarMenuSubItem("Avanzado",        tabName = "tab_grupo_avanzado", icon = shiny::icon("magic")),
+      bs4Dash::bs4SidebarMenuItem("Modal — Fila",       tabName = "tab_modal_fila",  icon = shiny::icon("window-restore")),
+      bs4Dash::bs4SidebarMenuItem("Modal — Celda",      tabName = "tab_modal_celda", icon = shiny::icon("hand-pointer")),
+      bs4Dash::bs4SidebarMenuItem("Showcase col_specs", tabName = "tab_col_specs",   icon = shiny::icon("sliders")),
+      bs4Dash::bs4SidebarMenuSubItem("Modulos Externos", tabName = "tab_grupo_ext",  icon = shiny::icon("puzzle-piece")),
+      bs4Dash::bs4SidebarMenuItem("Asesor + Grafico",   tabName = "tab_ext_asesor",  icon = shiny::icon("user-tie")),
+      bs4Dash::bs4SidebarMenuItem("Segmento + Dona",    tabName = "tab_ext_segmento", icon = shiny::icon("layer-group")),
+      bs4Dash::bs4SidebarMenuSubItem("Restricciones",   tabName = "tab_grupo_panel", icon = shiny::icon("sliders")),
+      bs4Dash::bs4SidebarMenuItem("Filas Bloqueadas",   tabName = "tab_panel_inline",  icon = shiny::icon("ban")),
+      bs4Dash::bs4SidebarMenuItem("Panel en Padre",     tabName = "tab_panel_externo", icon = shiny::icon("columns")),
+      bs4Dash::bs4SidebarMenuItem("Restriccion Cols",   tabName = "tab_rest_cols",   icon = shiny::icon("filter")),
+      bs4Dash::bs4SidebarMenuItem("Restriccion Filas",  tabName = "tab_rest_filas",  icon = shiny::icon("ban"))
     )),
     body = bs4Dash::bs4DashBody(
       shiny::tags$style(shiny::HTML(".caja-modal-footer {font-size:12px;color:#6C757D;}")),
