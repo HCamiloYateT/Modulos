@@ -24,6 +24,7 @@ devtools::install_github("HCamiloYateT/racafeModulos")
 - `R/TablaReactable.R`: helpers internos, UI, server y `DemoTablaReactable()` en un único script.
 - `R/TablaReactable2.R`: variante de tabla con UI mínima, server y `DemoTablaReactable2()` en un único script.
 - `R/MenuHeader.R`: módulo para dropdowns de navbar con badge, contenido flexible y `DemoMenuHeader()` en un único script.
+- `R/ListaDesplegableAgregable.R`: picker que permite agregar opciones al catálogo de la sesión y su demo autocontenida.
 
 ## Funciones exportadas
 
@@ -39,6 +40,8 @@ devtools::install_github("HCamiloYateT/racafeModulos")
 | `TablaReactable2()` | Variante de `TablaReactable()` orientada a configuración reactiva completa desde server, incluyendo `col_labels`. |
 | `MenuHeaderUI()` | UI de dropdown para navbar `bs4Dash` con badge y panel de contenido. |
 | `MenuHeaderServer()` | Server reactivo que despacha contenido desde `data.frame`, lista de tags o tags Shiny y expone selección. |
+| `ListaDesplegableAgregableUI()` | UI del picker y su formulario para capturar opciones nuevas. |
+| `ListaDesplegableAgregable()` | Server que valida, confirma y agrega opciones al catálogo vigente de la sesión. |
 
 ### Helpers
 
@@ -55,6 +58,7 @@ devtools::install_github("HCamiloYateT/racafeModulos")
 | `DemoTablaReactable()` | App de demostración autocontenida para `TablaReactable`. |
 | `DemoTablaReactable2()` | App integral para validar UI mínima, headers reactivos, `col_labels`, selección y modales en `TablaReactable2`. |
 | `DemoMenuHeader()` | App autocontenida para probar `MenuHeader` con data frame, lista de tags y tabla embebida. |
+| `DemoListaDesplegableAgregable()` | App con pickers múltiple y único, y visualización de sus valores reactivos. |
 
 ## CajaModal
 
